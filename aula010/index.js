@@ -24,7 +24,6 @@ Operadores de atribuição
 /*
 parseInt conversao para numeros INTEIROS
 parseFloat conversao para numeros DECIMAIS
-
 */
 
 console.log('------');
