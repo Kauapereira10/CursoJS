@@ -1,4 +1,4 @@
-const numero = 10;
+const numero = 12;
 
 // Se (numero >= 0 && numero <= 5) ocorrer, faça isso {código}
 // Se não faça isso {o código}

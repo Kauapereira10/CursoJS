@@ -13,7 +13,7 @@ console.log(umaString.length);
 console.log(umaString.slice(3, 6));
 console.log(umaString.slice(-5, umaString.length - 0));
 console.log(umaString.substring(umaString.length - 5));
-console.log(umaString.split(' ', 2));
+console.log(umaString.split(' ', 1));
 console.log(umaString.toUpperCase());
 console.log(umaString.toLowerCase());
 // 
