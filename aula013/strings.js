@@ -2,7 +2,7 @@ let umaString = 'um texto';
 
 console.log(umaString);
 console.log(umaString[4]);
-console.log(umaString.charAt(6));
+console.log(umaString.charAt(6)); // contando ate com o espaço
 console.log(umaString.concat(' ', ' em', ' um', ' lindo dia.'));
 console.log(umaString + ' em', ' um', ' lindo dia.');
 console.log(umaString.indexOf('texto'));
