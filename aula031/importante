@@ -1,0 +1,75 @@
+/*
+
+1. var
+
+Escopo: O escopo de uma variável declarada com var é a função em que ela foi declarada ou, se não estiver dentro de uma função, o escopo global. Isso significa que uma variável var pode ser acessada fora do bloco em que foi definida, o que pode levar a comportamentos inesperados.
+
+Hoisting: As variáveis declaradas com var são "elevadas" (hoisted) ao topo do seu escopo. Isso significa que você pode usar a variável antes de declará-la, mas seu valor será undefined até que a linha de declaração seja executada.
+
+Re-declaração: Você pode re-declarar uma variável var no mesmo escopo sem erro.
+
+Exemplo:
+javascript
+
+console.log(x); // undefined
+var x = 5;
+console.log(x); // 5
+
+2. let
+
+Escopo: O escopo de uma variável declarada com let é o bloco em que ela foi definida. Isso significa que uma variável let não pode ser acessada fora do bloco em que foi declarada.
+
+Hoisting: Assim como var, as variáveis let também são elevadas, mas não podem ser acessadas antes de sua declaração. Isso resulta em um erro de referência se você tentar acessar a variável antes de declará-la.
+
+Re-declaração: Você não pode re-declarar uma variável let no mesmo escopo.
+
+Exemplo:
+javascript
+
+{
+    let y = 10;
+    console.log(y); // 10
+}
+
+console.log(y); // ReferenceError: y is not defined
+
+3. const
+
+Escopo: Assim como let, o escopo de uma variável declarada com const é o bloco em que ela foi definida.
+
+Hoisting: As variáveis const também são elevadas, mas não podem ser acessadas antes de sua declaração, resultando em um erro de referência.
+
+Re-declaração: Você não pode re-declarar uma variável const no mesmo escopo.
+
+Imutabilidade: Uma variável const deve ser inicializada no momento da declaração e não pode ser reatribuída. No entanto, se a variável for um objeto ou um array, você pode modificar suas propriedades ou elementos.
+
+Exemplo:
+javascript
+
+const z = 15;
+console.log(z); // 15
+// z = 20; // TypeError: Assignment to constant variable.
+
+const obj = { name: 'Alice' };
+obj.name = 'Bob'; // Isso é permitido
+console.log(obj.name); // Bob
+
+Resumo das Diferenças
+
+Escopo: var tem escopo de função ou global; let e const têm escopo de bloco.
+
+Hoisting: var é acessível antes da declaração (mas com valor undefined); let e const não são acessíveis antes da declaração.
+
+Re-declaração: var pode ser re-declarado; let e const não podem ser re-declarados no mesmo escopo.
+
+Imutabilidade: const não pode ser reatribuído, mas seus objetos ou arrays podem ser modificados.
+
+Quando Usar Cada Um
+
+Use var se você precisar de uma variável que deve ser acessível em todo o escopo da função ou globalmente (embora seu uso seja desencorajado em favor de let e const).
+
+Use let quando você precisa de uma variável que pode ser reatribuída e que deve ter escopo de bloco.
+
+Use const quando você deseja declarar uma variável que não deve ser reatribuída, garantindo que seu valor permaneça constante (embora você ainda possa modificar objetos ou arrays).
+
+*/
