@@ -20,9 +20,9 @@ function iniciaRelogio () {
 document.addEventListener('click', function(e) {
     const el = e.target;
     
-    if (el.classList.contains('iniciar')) {
+    if (el.classList.contains('iniciar')) { //verifica se o elemento clicado possui a classe iniciar.
+        clearInterval(timer); // Garante que não haja múltiplos timers rodando ao mesmo tempo
         relogio.classList.remove('pausado');
-        clearInterval(timer);
         iniciaRelogio();
     }
     if (el.classList.contains('pausar')) {
@@ -33,7 +33,7 @@ document.addEventListener('click', function(e) {
         clearInterval(timer);
         relogio.innerHTML = '00:00:00';
         relogio.classList.remove('pausado');
-        segundos = 0;
+        segundos = 0; // Isso garante que, na próxima vez que o relógio for iniciado, ele começará a contar a partir de zero.
     }
 });
 }
