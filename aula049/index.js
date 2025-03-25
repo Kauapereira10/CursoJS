@@ -13,7 +13,7 @@ souUmDado();
 
 // Arrow function
 const funcaoArrow = () => {
-    console.log('Sou uma arrow function');
+    console.log('Sou uma arrow function');// Aponta para o contexto onde foi criada
 }
 funcaoArrow();
 // Dentro de um objeto
