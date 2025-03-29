@@ -1,15 +1,15 @@
 // argumentos que sustenta todos os argumentos enviados so para "function"
 function funcao() {
-    let total = 0;
-    for(let argumento of arguments) {
-        total += argumento;
+    let total = 0; // Começa com 0
+    for(let argumento of arguments) { // Percorre cada número em arguments
+        total += argumento; // Soma ao total
     }
     console.log(total);
 }
 
 funcao(1, 2, 3, 4, 5, 6, 7, 8);
 
-function funcao2 (a, b = 2, c = 4){
+function funcao2 (a, b = b || 0, c = 4){
     // b = b || 0;
     console.log(a + b + c);
 }
