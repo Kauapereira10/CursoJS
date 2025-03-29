@@ -1,41 +1,45 @@
-// Factory function (Função fábrica)
-// Constructor function (Função construtora)
+// Função fábrica para criar objetos do tipo "Pessoa"
 function criaPessoa(nome, sobrenome, a, p) {
     return {
-        nome,
-        sobrenome,
+        // Propriedades básicas
+        nome,  // Nome da pessoa
+        sobrenome,  // Sobrenome da pessoa
 
-        // Getter
+        // Getter para retornar o nome completo da pessoa
         get nomeCompleto() {
             return `${this.nome} ${this.sobrenome}`;
         },
 
-        // Setter
+        // Setter para alterar nome e sobrenome a partir de um nome completo
         set nomeCompleto(valor) {
-            valor = valor.split(' ');
-            this.nome = valor.shift();
-            this.sobrenome = valor.join(' ');
+            valor = valor.split(' ');  // Divide o nome completo em um array de palavras
+            this.nome = valor.shift();  // Pega a primeira palavra como nome
+            this.sobrenome = valor.join(' ');  // O restante se torna o sobrenome
         },
 
-        fala(assunto = 'falando sobre NADA') {
+        // Método que simula a fala da pessoa sobre um assunto
+        fala(assunto = 'falando sobre nada') {
             return `${this.nome} está ${assunto}.`;
         },
 
+        // Propriedades de altura e peso (Obs: "peso" estava escrito errado)
         altura: a,
-        peso: p,
+        peso: p,  // Corrigindo o erro de digitação: antes estava "pleso"
 
-        // Getter
+        // Getter para calcular o Índice de Massa Corporal (IMC)
         get imc() {
-            const indice = this.peso / (this.altura ** 2);
-            return indice.toFixed(2);
+            const indice = this.peso / (this.altura ** 2);  // Fórmula do IMC: peso / altura²
+            return indice.toFixed(2);  // Retorna o valor com 2 casas decimais
         }
     };
 }
 
-const p1 = criaPessoa('Luiz', 'Otávio', 1.8, 80);
-const p2 = criaPessoa('João', 'Otávio', 1.90, 57);
-const p3 = criaPessoa('Junior', 'Otávio', 1.5, 110);
+// Criando três pessoas diferentes com a função fábrica
+const p1 = criaPessoa('Luiz', 'Otavio', 1.8, 80);
+const p2 = criaPessoa('João', 'Otavio', 1.90, 57);
+const p3 = criaPessoa('Kaua', 'Pereira', 1.82, 110);
 
-console.log(p1.imc);
-console.log(p2.imc);
-console.log(p3.imc);
+// Exibindo o IMC de cada pessoa no console
+console.log(p1.imc);  // Deve imprimir o IMC de Luiz
+console.log(p2.imc);  // Deve imprimir o IMC de João
+console.log(p3.imc);  // Deve imprimir o IMC de Kaua
