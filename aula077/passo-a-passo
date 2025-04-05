@@ -1,0 +1,47 @@
+📌 1. Criação da estrutura principal
+Foi criada uma função construtora chamada ValidaCPF, que recebe como parâmetro o CPF digitado. Dentro dela, usamos um recurso chamado Object.defineProperty para criar uma propriedade calculada chamada cpfLimpo, que automaticamente remove tudo que não for número do CPF (pontuação, traços etc.).
+
+📌 2. Método de validação geral
+Criamos um método chamado valida() que executa toda a regra do algoritmo de CPF. Ele segue as etapas:
+
+Verifica se o CPF está definido.
+
+Verifica se ele tem exatamente 11 dígitos.
+
+Verifica se o CPF não é uma sequência repetida, como “11111111111” ou “00000000000”.
+
+Se passar por essas etapas, ele segue para o próximo passo.
+
+📌 3. Cálculo dos dígitos verificadores
+A lógica separa os 9 primeiros dígitos do CPF, que são a base.
+
+A partir desses dígitos:
+
+Gera o primeiro dígito verificador, seguindo o cálculo padrão do CPF.
+
+Depois, com os 9 dígitos + o primeiro dígito, gera o segundo dígito verificador.
+
+Esses dois dígitos são então concatenados ao CPF base para formar um novo CPF gerado.
+
+📌 4. Comparação com o CPF original
+Comparamos o novo CPF gerado com o CPF digitado (já limpo).
+Se forem iguais, o CPF é considerado válido.
+Se forem diferentes, é inválido.
+
+📌 5. Verificação de sequência repetida
+Um método auxiliar chamado isSequencia() confere se o CPF é uma sequência de números iguais.
+Esse tipo de CPF não é aceito, mesmo que passe no cálculo.
+
+📌 6. Integração com HTML
+No final, foi criada uma função validarCPF() que é chamada quando o usuário digita um CPF e clica em um botão na página.
+
+Essa função:
+
+Pega o CPF do input do HTML.
+
+Cria um novo objeto da função ValidaCPF.
+
+Usa o método .valida() para verificar se está correto.
+
+Exibe na tela uma mensagem de sucesso ou erro, mudando a cor do texto conforme o resultado.
+
