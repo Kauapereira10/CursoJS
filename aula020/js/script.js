@@ -5,7 +5,7 @@ function meuEscopo () {
     const pessoas = [];
 
     function recebeEvento (event) {
-        event.preventDefault();
+        event.preventDefault(); // evita que a página recarregue
 
         const nome = form.querySelector('.nome');
         const sobrenome = form.querySelector('.sobrenome');
