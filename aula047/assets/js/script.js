@@ -33,7 +33,7 @@ document.addEventListener('click', function(e) {
         clearInterval(timer);
         relogio.innerHTML = '00:00:00';
         relogio.classList.remove('pausado');
-        segundos = 0; // Isso garante que, na próxima vez que o relógio for iniciado, ele começará a contar a partir de zero.
+        seconds = 0; // Isso garante que, na próxima vez que o relógio for iniciado, ele começará a contar a partir de zero.
     }
 });
 }
