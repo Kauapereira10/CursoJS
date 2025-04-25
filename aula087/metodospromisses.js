@@ -18,19 +18,34 @@ function esperaAi(msg, tempo) {
     });
 }
 
-const promises = [
-    'Primeiro valor',
-    esperaAi('Promise 1', 1000),
-    esperaAi('Promise 2', 500),
-    esperaAi('Promise 3', 5000),
-    esperaAi(100, 1000),
-    'Outro valor'
-];
+// Promise.all / Promise.race / Promise.resolve / Promise.reject
 
-Promise.all(promises)
-.then(function(valor) {
-    console.log(valor);
-})
-.catch(function(erro) {
-    console.log(erro);
-});
+function baixaPagina() {
+    const emCache = false;
+
+    if (emCache) {
+        return Promise.reject('Página em cache');
+    } else {
+        return esperaAi('Baixei a pagina', 2500);
+    }
+}
+
+const p1 = baixaPagina();
+const p2 = esperaAi('Fazendo algo mais', 3000);
+const p3 = esperaAi('Outro processo', 1500);
+
+Promise.all([p1, p2, p3])
+    .then(results => {
+        console.log('Todas as promessas resolvidas: ', results);
+    })
+    .catch(err => {
+        console.log('Erro com uma das promessas (Promise.all): ', err);
+    });
+
+Promise.race([p1, p2, p3])
+    .then(result => {
+        console.log('A primeira promessa resolvida: ', result);
+    })
+    .catch(err => {
+        console.log('Erro na primeira promessa (Promise.race): ', err);
+    });
