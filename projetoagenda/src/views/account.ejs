@@ -1,0 +1,17 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container my-5">
+  <h1 class="text-center">Minha Conta</h1>
+  <p class="text-center lead">Aqui estão seus dados cadastrados.</p>
+
+  <div class="card p-4">
+    <p><strong>Nome:</strong> <%= user.nome %></p>
+    <p><strong>Sobrenome:</strong> <%= user.sobrenome %></p>
+    <p><strong>Email:</strong> <%= user.email %></p>
+
+    <a href="/user/edit" class="btn btn-dark mt-3">Editar meus dados</a>
+  </div>
+</div>
+
+<%- include('includes/footer') %>

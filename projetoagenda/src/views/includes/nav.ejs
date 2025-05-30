@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Sua Agenda</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/contato/index">Criar contato</a>
+        </li>
+
+        <% if (user) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/account">Conta</a>
+        </li>
+        <% } %>
+
+      </ul>
+
+      <ul class="navbar-nav">
+
+        <% if (user) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login/logout">Sair</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login/index">Entrar</a>
+        </li>
+        <% } %>
+
+      </ul>
+
+      <form class="d-flex" role="search" action="/search" method="GET">
+        <input
+          class="form-control me-2"
+          type="search"
+          name="q"
+          placeholder="Ex: nome, e-mail..."
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-light" type="submit">Pesquisar</button>
+      </form>
+
+    </div>
+  </div>
+</nav>
