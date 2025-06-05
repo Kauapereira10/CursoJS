@@ -25,8 +25,7 @@ route.get('/contato/delete/:id', loginRequired, contatoController.delete);
 
 // Página para editar o cadastro do usuário
 route.get('/user/account', loginRequired, userController.account);
-
-// Enviar os dados atualizados
-route.post('/user/update', loginRequired, userController.update);
+route.get('/user/edit/:id', loginRequired, userController.editIndex); 
+route.post('/user/edit/:id', loginRequired, userController.update);
 
 module.exports = route;

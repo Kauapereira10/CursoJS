@@ -1,0 +1,57 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Editar Dados do Usuário</h1>
+
+<% if (errors && errors.length) { %>
+  <div class="alert alert-danger">
+    <ul>
+      <% errors.forEach(function(error) { %>
+        <li><%= error %></li>
+      <% }) %>
+    </ul>
+  </div>
+<% } %>
+
+<% if (success && success.length) { %>
+  <div class="alert alert-success">
+    <%= success %>
+  </div>
+<% } %>
+
+
+
+  <form action="/user/edit/<%= user._id %>" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nome" name="nome" value="<%= user.nome %>" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="email" class="form-label">E-mail</label>
+      <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="tel" class="form-label">Telefone</label>
+      <input type="tel" class="form-control" id="tel" name="telefone" value="<%= user.tel %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Senha (deixe vazio para não alterar)</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Nova senha">
+    </div>
+
+    <div class="mb-3">
+      <label for="password2" class="form-label">Confirmação de Senha</label>
+      <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirme a nova senha">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Atualizar Dados</button>
+  </form>
+</div>
+
+<%- include('includes/footer') %>

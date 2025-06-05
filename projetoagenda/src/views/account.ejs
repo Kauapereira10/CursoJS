@@ -9,8 +9,9 @@
     <p><strong>Nome:</strong> <%= user.nome %></p>
     <p><strong>Sobrenome:</strong> <%= user.sobrenome %></p>
     <p><strong>Email:</strong> <%= user.email %></p>
+    <p><strong>Telefone:</strong> <%= user.tel %></p>
 
-    <a href="/user/edit" class="btn btn-dark mt-3">Editar meus dados</a>
+    <a href="/user/edit/<%= user._id %>" class="btn btn-dark mt-3">Editar meus dados</a>
   </div>
 </div>
 

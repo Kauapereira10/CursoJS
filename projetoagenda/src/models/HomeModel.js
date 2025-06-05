@@ -1,13 +1,7 @@
-const mongoose = require('mongoose');
-const HomeSchema = new mongoose.Schema({
-    titulo: { type: String, required: true },
-    descricao: { type: String }
-})
-
-const HomeModel = mongoose.model('Home', HomeSchema);
-
 class Home {
-
+    async cria(dados) {
+        return await HomeModel.create(dados);
+    }
 }
 
 module.exports = Home;

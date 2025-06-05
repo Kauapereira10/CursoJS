@@ -1,4 +1,5 @@
-const Contato = require("../models/contatoModel");
+const Contato = require('../models/contatoModel');
+const Login = require('../models/LoginModel');  // <== Importação adicionada
 
 exports.list = async (req, res) => {
     const contatos = await Contato.buscaContatos(req.session.user._id);
@@ -32,13 +33,17 @@ exports.register = async (req, res) => {
     }
 };
 
-exports.editIndex = async function (req, res) {
-    if (!req.params.id) return res.render("404");
+exports.editIndex = async (req, res) => {
+  try {
+    if (!req.session.user) return res.redirect('/login/index');
 
     const contato = await Contato.buscaPorId(req.params.id, req.session.user._id);
-    if (!contato) return res.render("404");
-
-    res.render("contato", { contato });
+    if (!contato) return res.render('404');
+    res.render('contatoEdit', { contato });  // **Tem que usar a view que você criou para editar contato**
+  } catch (e) {
+    console.error(e);
+    res.render('404');
+  }
 };
 
 exports.edit = async function (req, res) {

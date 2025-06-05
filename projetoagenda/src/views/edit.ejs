@@ -1,44 +1,35 @@
 <%- include('includes/head') %>
 <%- include('includes/nav') %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8 my-3">
-      <h1 class="text-center">Minha Conta</h1>
-      <p class="text-center lead">Atualize seus dados:</p>
+<div class="container my-5">
+  <h1 class="text-center">Editar Minha Conta</h1>
+  <%- include('includes/messages') %>
 
-      <%- include('includes/messages'); %>
+  <form action="/user/edit/<%= user._id %>" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-      <form action="/user/update" method="POST">
-  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-  
-  <div class="mb-3">
-    <label>Nome</label>
-    <input value="<%= user.nome %>" type="text" class="form-control" name="nome">
-  </div>
-  
-  <div class="mb-3">
-    <label>Email</label>
-    <input value="<%= user.email %>" type="email" class="form-control" name="email">
-  </div>
-  
-  <div class="mb-3">
-    <label>Senha</label>
-    <input type="password" class="form-control" name="password">
-  </div>
-  
-  <div class="mb-3">
-    <label>Repita a senha</label>
-    <input type="password" class="form-control" name="password2">
-  </div>
-  
-  <button type="submit" class="btn btn-dark">Atualizar Dados</button>
-</form>
-
+    <div class="mb-3">
+      <label>Nome</label>
+      <input value="<%= user.nome %>" type="text" class="form-control" name="nome">
     </div>
-    <div class="col-lg-2"></div>
-  </div>
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input value="<%= user.email %>" type="email" class="form-control" name="email">
+    </div>
+
+    <div class="mb-3">
+      <label>Nova Senha (opcional)</label>
+      <input type="password" class="form-control" name="password">
+    </div>
+
+    <div class="mb-3">
+      <label>Confirme a Nova Senha</label>
+      <input type="password" class="form-control" name="password2">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Atualizar Dados</button>
+  </form>
 </div>
 
 <%- include('includes/footer') %>

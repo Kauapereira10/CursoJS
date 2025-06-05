@@ -74,7 +74,7 @@ Contato.prototype.edit = async function (id) {
 // Métodos estáticos
 Contato.buscaPorId = async function (id, userId) {
   if (typeof id !== "string") return null;
-  return await ContatoModel.findById({ _id: id, user: userId });
+  return await ContatoModel.findOne({ _id: id, user: userId });
 };
 
 Contato.buscaContatos = async function (userId) {
@@ -83,7 +83,7 @@ Contato.buscaContatos = async function (userId) {
 
 Contato.delete = async function (id, userId) {
   if (typeof id !== "string") return null;
-  return await ContatoModel.findByIdAndDelete({_id: id, userId: userId });
+  return await ContatoModel.findOneAndDelete({ _id: id, user: userId });
 };
 
 module.exports = Contato;

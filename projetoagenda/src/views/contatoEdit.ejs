@@ -5,31 +5,36 @@
       <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 my-3">
-          <h1 class="text-center">Seu contato</h1>
-          <p class="text-center lead">Crie ou edite seu contato abaixo:</p>
+          <h1 class="text-center">Editar seu contato</h1>
+          <p class="text-center lead">Edite seu contato abaixo:</p>
 
           <%- include('includes/messages'); %>
 
-    
-          <form action="/contato/register" method="POST">
+          <% if(contato._id) { %>
+              <form action="/contato/edit/<%= contato._id %>" method="POST">
+            <% } else { %>
+                <form action="/contato/register" method="POST">
+            <% } %>
+
+
             <input type="hidden" name="_csrf" value=<%= csrfToken%>>
               <div class="mb-3">
-                <label>Nome</label>
+                <label>Novo nome</label>
                 <input value="<%= contato.nome %>" type="text" class="form-control" name="nome">
               </div>
               <div class="mb-3">
-                <label>Sobrenome</label>
+                <label>Novo Sobrenome</label>
                 <input value="<%= contato.sobrenome %>" type="text" class="form-control" name="sobrenome">
               </div>
               <div class="mb-3">
-                <label>Email</label>
+                <label>Novo Email</label>
                 <input value="<%= contato.email %>" type="email" class="form-control" name="email">
               </div>
               <div class="mb-3">
-                <label>Telefone</label>
+                <label>Novo Telefone</label>
                 <input value="<%= contato.telefone %>" type="tel" class="form-control" name="telefone">
               </div>
-              <button type="submit" class="btn btn-dark">Cadastrar minha conta</button>
+              <button type="submit" class="btn btn-dark">Editar contato</button>
             </form>
         </div>
         <div class="col-lg-2"></div>
